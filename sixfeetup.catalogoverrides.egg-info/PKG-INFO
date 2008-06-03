@@ -1,0 +1,26 @@
+Metadata-Version: 1.0
+Name: sixfeetup.catalogoverrides
+Version: 0.1dev
+Summary: UNKNOWN
+Home-page: http://www.sixfeetup.com
+Author: Six Feet Up, Inc.
+Author-email: info@sixfeetup.com
+License: GPL
+Description: Introduction
+        ============
+        
+        
+        
+        Changelog
+        =========
+        
+        0.1 - Unreleased
+        ----------------
+        
+        * Initial release
+        
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

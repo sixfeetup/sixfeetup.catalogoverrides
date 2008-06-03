@@ -1,0 +1,32 @@
+<configure 
+  xmlns="http://namespaces.zope.org/zope">
+
+  <adapter
+      factory=".pluginindexes.PluggableIndexNodeAdapter"
+      provides="Products.GenericSetup.interfaces.INode"
+      for="Products.PluginIndexes.interfaces.IPluggableIndex
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <adapter
+      factory=".pluginindexes.DateIndexNodeAdapter"
+      provides="Products.GenericSetup.interfaces.INode"
+      for="Products.PluginIndexes.interfaces.IDateIndex
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <adapter
+      factory=".pluginindexes.DateRangeIndexNodeAdapter"
+      provides="Products.GenericSetup.interfaces.INode"
+      for="Products.PluginIndexes.interfaces.IDateRangeIndex
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <adapter
+      factory=".pluginindexes.FilteredSetNodeAdapter"
+      provides="Products.GenericSetup.interfaces.INode"
+      for="Products.PluginIndexes.interfaces.IFilteredSet
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+</configure>
