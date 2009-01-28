@@ -29,4 +29,11 @@
            Products.GenericSetup.interfaces.ISetupEnviron"
       />
 
+  <adapter 
+      factory=".zcatalog.ZCatalogXMLAdapter"
+      provides="Products.GenericSetup.interfaces.INode"
+      for="Products.ZCatalog.interfaces.IZCatalog
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
 </configure>
