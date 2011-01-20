@@ -1,5 +1,9 @@
 """Catalog index node adapters that only clear the index when
-needed."""
+needed.
+
+This is a silly workaround for this issue:
+https://bugs.launchpad.net/zope-cmf/+bug/161682
+"""
 
 from Products.GenericSetup.PluginIndexes.exportimport import PluggableIndexNodeAdapter as PluggableIndexBase
 from Products.GenericSetup.PluginIndexes.exportimport import DateIndexNodeAdapter as DateIndexBase
@@ -31,10 +35,9 @@ class DateIndexNodeAdapter(DateIndexBase):
         """
         if self.environ.shouldPurge():
             self._purgeProperties()
-
-        if node != self._extractProperties():
-            self._initProperties(node)
-            self.context.clear()
+        # XXX: The only thing we have changed here is that we do
+        #      NOT clear the index after creating it
+        self._initProperties(node)
 
     node = property(DateIndexBase._exportNode, _importNode)
 
