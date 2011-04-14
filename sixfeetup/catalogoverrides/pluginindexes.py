@@ -9,6 +9,8 @@ from Products.GenericSetup.PluginIndexes.exportimport import PluggableIndexNodeA
 from Products.GenericSetup.PluginIndexes.exportimport import DateIndexNodeAdapter as DateIndexBase
 from Products.GenericSetup.PluginIndexes.exportimport import DateRangeIndexNodeAdapter as DateRangeIndexBase
 from Products.GenericSetup.PluginIndexes.exportimport import FilteredSetNodeAdapter as FilteredSetBase
+from Products.GenericSetup.ZCTextIndex.exportimport import ZCTextIndexNodeAdapter as ZCTextIndexBase
+
 
 class PluggableIndexNodeAdapter(PluggableIndexBase):
     """Only clear the index when needed."""
@@ -68,3 +70,21 @@ class FilteredSetNodeAdapter(FilteredSetBase):
             self.context.clear()
 
     node = property(FilteredSetBase._exportNode, _importNode)
+
+
+class ZCTextIndexNodeAdapter(ZCTextIndexBase):
+    """Only clear the index when needed."""
+
+    def _importNode(self, node):
+        """Import the object from the DOM node.
+        """
+        indexed_attrs = []
+        for child in node.childNodes:
+            if child.nodeName == 'indexed_attr':
+                indexed_attrs.append(
+                                  child.getAttribute('value').encode('utf-8'))
+        self.context._indexed_attrs = indexed_attrs
+        # Here comes the big change:
+        # self.context.clear()
+
+    node = property(ZCTextIndexBase._exportNode, _importNode)

@@ -4,7 +4,8 @@ Changelog
 1.3 - Unreleased
 ----------------
 
-* Nothing changed yet.
+* Added patch for ZCTextIndexes.
+  [maurits]
 
 
 1.2 - 2011-01-20
