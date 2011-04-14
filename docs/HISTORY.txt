@@ -4,6 +4,9 @@ Changelog
 1.3 - Unreleased
 ----------------
 
+* Added zcml entry point for z3c.autoinclude.plugin.
+  [maurits]
+
 * Added patch for ZCTextIndexes.
   [maurits]
 
